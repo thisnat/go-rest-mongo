@@ -80,9 +80,7 @@ func GetNotesByUserId() gin.HandlerFunc {
 			notes = append(notes, singleNote)
 		}
 
-		c.JSON(http.StatusOK,
-			responses.NoteResponse{Status: http.StatusOK, Message: "success", Data: map[string]interface{}{"data": notes}},
-		)
+		c.JSON(http.StatusOK, notes)
 	}
 }
 
@@ -110,9 +108,7 @@ func GetAllNotes() gin.HandlerFunc {
 			notes = append(notes, singleNote)
 		}
 
-		c.JSON(http.StatusOK,
-			responses.NoteResponse{Status: http.StatusOK, Message: "success", Data: map[string]interface{}{"data": notes}},
-		)
+		c.JSON(http.StatusOK, notes)
 	}
 }
 
@@ -131,6 +127,6 @@ func GetANote() gin.HandlerFunc {
 			return
 		}
 
-		c.JSON(http.StatusOK, responses.NoteResponse{Status: http.StatusOK, Message: "success", Data: map[string]interface{}{"data": note}})
+		c.JSON(http.StatusOK, note)
 	}
 }
